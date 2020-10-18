@@ -1,12 +1,12 @@
 #include <Keyboard.h>
 
 void setup(void) {
-  Serial1.begin(9600);
+  Serial.begin(9600);
   Keyboard.begin();
 }
 
 void keyWait() {
-  while (Serial1.available() <= 0)
+  while (Serial.available() <= 0)
     delay(1);
 }
 
@@ -15,22 +15,22 @@ void loop(void) {
   byte ch;
   
   keyWait();
-  byte tp = Serial1.read();
+  byte tp = Serial.read();
   switch (tp) {
   case 1:
     keyWait();
-    ch = Serial1.read();
+    ch = Serial.read();
     Keyboard.press(ch);
     sprintf(buf, "%02x", ch);
-    Serial1.println(buf);
+    Serial.println(buf);
     break;
 
   case 2:
     keyWait();
-    ch = Serial1.read();
+    ch = Serial.read();
     Keyboard.release(ch);
     sprintf(buf, "%02x", ch);
-    Serial1.println(buf);
+    Serial.println(buf);
     break;
   }
 }

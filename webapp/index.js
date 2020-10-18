@@ -1,6 +1,6 @@
 'use strict';
 
-const comPort = 'COM5';
+const comPort = 'COM6';
 
 const SerialPort = require('serialport');
 const parsers = SerialPort.parsers;
