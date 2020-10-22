@@ -9,7 +9,7 @@ void setup(void)
 
 void keyWait()
 {
-  while (Serial.available() <= 0 || Serial.available() <= 0)
+  while (Serial.available() <= 0 || Serial1.available() <= 0)
     delay(1);
 }
 
